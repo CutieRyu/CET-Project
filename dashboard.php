@@ -4,13 +4,25 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>home</title>
+   <title>Dashboard</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+
+   <style>
+      /* Add additional styles for the dashboard if needed */
+      body {
+         background-color: #f4f4f4; /* Adjust as needed */
+      }
+
+      /* Add any specific styles for the dashboard content */
+      .dashboard-container {
+         padding: 20px;
+      }
+   </style>
 
 </head>
 <body>
@@ -19,7 +31,7 @@
    
    <section class="flex">
 
-      <a href="home.html" class="logo">Educate</a>
+      <a href="dashboard.php" class="logo">Educate</a>
 
       <form action="search.html" method="post" class="search-form">
          <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
@@ -37,10 +49,10 @@
          <img src="images/pic-1.jpg" class="image" alt="">
          <h3 class="name">User</h3>
          <p class="role">student</p>
-         <a href="profile.html" class="btn">view profile</a>
+         <a href="profile.php" class="btn">View Profile</a>
          <div class="flex-btn">
-            <a href="login.html" class="option-btn">login</a>
-            <a href="register.html" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">login</a>
+            <a href="register.php" class="option-btn">register</a>
          </div>
       </div>
 
@@ -62,14 +74,15 @@
    </div>
 
    <nav class="navbar">
-      <a href="home.html"><i class="fas fa-home"></i><span>home</span></a>
-      <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
-      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
-      <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
+      <a href="dashboard.php"><i class="fas fa-home"></i><span>home</span></a>
+      <a href="about.php"><i class="fas fa-question"></i><span>about</span></a>
+      <a href="courses.php"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+      <a href="teachers.php"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
+      <a href="contact.php"><i class="fas fa-headset"></i><span>contact us</span></a>
    </nav>
 
 </div>
+
 
 <section class="home-grid">
 
@@ -127,23 +140,14 @@
 
    <h1 class="heading">our courses</h1>
 
-   <div class="box-container">
-
-      
-
-   </div>
-
    <div class="more-btn">
       <a href="courses.html" class="inline-option-btn">view all course</a>
    </div>
 
 </section>
 
-
-
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 
-   
 </body>
 </html>

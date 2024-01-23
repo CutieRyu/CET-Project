@@ -19,7 +19,7 @@
    
    <section class="flex">
 
-      <a href="home.html" class="logo">Educate</a>
+      <a href="dashboard.php" class="logo">Educate</a>
 
       <form action="search.html" method="post" class="search-form">
          <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
@@ -62,11 +62,11 @@
    </div>
 
    <nav class="navbar">
-      <a href="home.html"><i class="fas fa-home"></i><span>home</span></a>
-      <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
-      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
-      <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
+      <a href="dashboard.php"><i class="fas fa-home"></i><span>home</span></a>
+      <a href="about.php"><i class="fas fa-question"></i><span>about</span></a>
+      <a href="courses.php"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+      <a href="teachers.php"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
+      <a href="contact.php"><i class="fas fa-headset"></i><span>contact us</span></a>
    </nav>
 
 </div>

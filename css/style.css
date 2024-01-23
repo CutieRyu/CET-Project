@@ -136,36 +136,37 @@ section{
    gap: 1rem;
 }
 
-.header{
+.header {
    position: sticky;
-   top:0; left:0; right: 0;
-   background-color: var(--white);
+   top: 0; left: 0; right: 0;
+   background-color: rgba(0, 0, 0, 0.6); /* Adjust the alpha value for transparency */
    z-index: 1000;
    border-bottom: var(--border);
+   backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
 }
 
-.header .flex{
+.header .flex {
    display: flex;
    align-items: center;
    justify-content: space-between;
    position: relative;
-   padding: 1.5rem 2rem;
+   padding: 1rem 1.5rem; /* Adjusted padding */
 }
 
-.header .flex .logo{
-   font-size: 2.5rem;
+.header .flex .logo {
+   font-size: 2rem; /* Adjusted font size */
    color: var(--black);
 }
 
-.header .flex .search-form{
-   width: 50rem;
+.header .flex .search-form {
+   width: 30rem; /* Adjusted width */
    border-radius: .5rem;
    background-color: var(--light-bg);
-   padding:1.5rem 2rem;
+   padding: 1rem 1.5rem; /* Adjusted padding */
    display: flex;
-   gap:2rem;
-
+   gap: 1.5rem; /* Adjusted gap */
 }
+
 
 .header .flex .search-form input{
    width: 100%;
@@ -246,15 +247,18 @@ section{
    display: none;
 }
 
-.side-bar{
+.side-bar {
    position: fixed;
    top: 0; left: 0;
-   width: 30rem;
-   background-color: #ffbd59;
+   width: 16rem; /* Adjusted width */
+   background-color: rgba(0, 0, 0, 0.6); /* Adjust the alpha value for transparency */
    height: 100vh;
+   overflow-y: auto; /* Added overflow-y to make sidebar scrollable */
    border-right: var(--border);
    z-index: 1200;
+   backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
 }
+
 
 .side-bar #close-btn{
    text-align: right;
@@ -279,8 +283,8 @@ section{
    background-color: var(--black);
 }
 
-.side-bar .profile{
-   padding:3rem 2rem;
+.side-bar .profile {
+   padding: 2rem 1.5rem; /* Adjusted padding */
    text-align: center;
 }
 
@@ -305,10 +309,10 @@ section{
    color: var(--light-color);
 }
 
-.side-bar .navbar a{
+.side-bar .navbar a {
    display: block;
-   padding: 2rem;
-   font-size: 2rem;
+   padding: 1.5rem; /* Adjusted padding */
+   font-size: 1.8rem; /* Adjusted font size */
 }
 
 .side-bar .navbar a i{
@@ -329,8 +333,8 @@ section{
    margin-right: 2.5rem;
 }
 
-.side-bar.active{
-   left: -30rem;
+.side-bar.active {
+   left: -20rem; /* Adjusted left position */
 }
 
 .home-grid .box-container{
