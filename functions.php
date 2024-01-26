@@ -6,7 +6,7 @@ include 'db_config.php';
 
 // Helper function to check if a user is logged in
 function isLoggedIn() {
-    return isset($_SESSION['user_id']);
+    return isset($_SESSION['id']);
 }
 
 // Helper function to check if a user is a teacher
@@ -17,6 +17,11 @@ function isUserTeacher() {
 // Helper function to check if a user is a student
 function isUserStudent() {
     return isLoggedIn() && isset($_SESSION['role']) && $_SESSION['role'] == 2;
+}
+
+function isUserAdmin() {
+    return isLoggedIn() && isset($_SESSION['role']) && $_SESSION['role'] == 3;
+    header("Location: admin_dashboard.php");
 }
 
 // Helper function to validate login credentials and retrieve user data
@@ -52,15 +57,33 @@ function validateTeacherLogin($usernameOrEmail, $password) {
     }
 }
 
-function validateAdminLogin($usernameOrEmail, $password) {
+function validateStudentLogin($usernameOrEmail, $password) {
     global $conn;
 
-    $sql = "SELECT id FROM admins WHERE (username = '$usernameOrEmail' OR email = '$usernameOrEmail') AND password = '$password'";
+    $sql = "SELECT id, role FROM public_user WHERE (username = '$usernameOrEmail' OR email = '$usernameOrEmail') AND password = '$password'";
 
     $result = $conn->query($sql);
 
-    if ($result->num_rows == 1) {
-        // Return admin data if login is successful
+   
+    if ($result-> num_rows == 1 and $role == 2) {
+        // Return user data if login is successful
+        return $result->fetch_assoc();
+    } else {
+        // Return false if login fails
+        return false;
+    }
+}
+
+function validateAdminLogin($usernameOrEmail, $password) {
+    global $conn;
+
+    $sql = "SELECT id, role FROM public_user WHERE (username = '$usernameOrEmail' OR email = '$usernameOrEmail') AND password = '$password'";
+
+    $result = $conn->query($sql);
+
+   
+    if ($result-> num_rows == 1 and $role == 3) {
+        // Return user data if login is successful
         return $result->fetch_assoc();
     } else {
         // Return false if login fails

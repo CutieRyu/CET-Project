@@ -1,13 +1,11 @@
 <?php
-// admin_dashboard.php
 
-// Include necessary files and functions
 include 'db_config.php'; // Include your database connection configuration
 include 'functions.php'; // Include your helper functions
 
 // Check user authentication and role
 if (!isLoggedIn() || !isUserAdmin()) {
-    header("Location: admin_dashboard.php");
+    header("Location: login.php");
     exit();
 }
 

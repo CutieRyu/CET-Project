@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2024 at 06:46 AM
+-- Generation Time: Jan 26, 2024 at 07:47 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,22 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Table structure for table `lessons`
 --
 
-CREATE TABLE `admins` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+CREATE TABLE `lessons` (
+  `id` int(2) DEFAULT NULL,
+  `title` varchar(30) NOT NULL,
+  `description` varchar(150) NOT NULL,
+  `user_info` varchar(50) NOT NULL,
+  `completion_date` datetime NOT NULL,
+  `level` int(2) NOT NULL,
+  `category` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `admins`
---
-
-INSERT INTO `admins` (`id`, `username`, `email`, `password`) VALUES
-(1, 'admin', 'admin@email.com', 'admin');
 
 -- --------------------------------------------------------
 
@@ -48,8 +44,8 @@ INSERT INTO `admins` (`id`, `username`, `email`, `password`) VALUES
 --
 
 CREATE TABLE `media` (
-  `media_id` int(11) NOT NULL,
-  `filename` varchar(255) NOT NULL,
+  `media_id` int(2) NOT NULL,
+  `filename` varchar(30) NOT NULL,
   `file_path` varchar(255) NOT NULL,
   `upload_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -61,31 +57,34 @@ CREATE TABLE `media` (
 --
 
 CREATE TABLE `public_user` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `role` int(11) NOT NULL
+  `id` int(2) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `role` int(1) NOT NULL,
+  `lessons_completed` int(2) NOT NULL,
+  `quizzes_completed` int(2) NOT NULL,
+  `scores` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `public_user`
 --
 
-INSERT INTO `public_user` (`id`, `username`, `email`, `password`, `role`) VALUES
-(1, 'nthnsmol', 'nthnsmol@email.com', 'password', 0),
-(2, 'teach1', 'teach1@gmail.com', 'password', 1);
+INSERT INTO `public_user` (`id`, `username`, `email`, `password`, `role`, `lessons_completed`, `quizzes_completed`, `scores`) VALUES
+(1, 'nthnsmol', 'nthnsmol@email.com', 'password', 0, 0, 0, 0),
+(2, 'teach1', 'teach1@gmail.com', 'password', 1, 0, 0, 0),
+(3, 'admin', 'admin@email.com', 'admin', 3, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admins`
+-- Indexes for table `lessons`
 --
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`,`email`);
+ALTER TABLE `lessons`
+  ADD UNIQUE KEY `id` (`user_info`);
 
 --
 -- Indexes for table `media`
@@ -104,22 +103,16 @@ ALTER TABLE `public_user`
 --
 
 --
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
-  MODIFY `media_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `media_id` int(2) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `public_user`
 --
 ALTER TABLE `public_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
