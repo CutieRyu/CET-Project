@@ -42,12 +42,13 @@ html::-webkit-scrollbar-thumb{
    background-color: var(--main-color);
 }
 
-body{
-   background-image: url("../images/baybg.jpg");
-   background-size: contain;
+body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background: url('../images/baybg.jpg') no-repeat center center fixed;
    background-size: cover;
-   background-repeat: no-repeat;
-   height: 100vh
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 }
 
 body.dark{
@@ -56,10 +57,59 @@ body.dark{
    --black:#fff;
    --white:#222;
    --border:.1rem solid rgba(255,255,255,.2);
+   transition: background 0.3s ease; /* Add transition for a smoother effect */
 }
 
 body.active{
    padding-left: 0;
+}
+
+/* Card container styles */
+.card-container {
+   background: var(--light-bg);
+   border: var(--border);
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   padding: 20px;
+   margin: 20px auto;
+   max-width: 600px; /* Adjust as needed */
+   transition: background 0.3s ease; /* Add transition for a smoother effect */
+}
+
+.card-container.dark {
+   background: #222;
+   border-color: var(--white);
+   filter: invert(1); /* Invert colors in dark mode */
+}
+
+/* Page styles */
+.page {
+   display: none;
+   color: var(--black); /* Default text color */
+}
+
+.page.active {
+   display: block;
+   color: var(--white); /* Text color in dark mode */
+}
+
+/* Navigation button styles */
+.navigation-btn {
+   width: 100px; /* Adjusted width for better visibility */
+   height: 40px; /* Adjusted height for better visibility */
+   background-color: #333;
+   color: #ffbd59;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.navigation-btn:hover {
+   background-color: #555;
+}
+
+.dashboard-container {
+   padding: 20px;
 }
 
 section{
@@ -143,6 +193,11 @@ section{
    z-index: 1000;
    border-bottom: var(--border);
    backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+   transition: background-color 0.3s ease; /* Add transition for smooth color change */
+}
+
+.header.minimize {
+   background-color: rgba(0, 0, 0, 0.4); /* Adjust the alpha value for transparency */
 }
 
 .header .flex {
@@ -249,7 +304,7 @@ section{
 
 .side-bar {
    position: fixed;
-   top: 0; left: 0;
+   top: 0; left: -200px; /* Adjusted left position */
    width: 16rem; /* Adjusted width */
    background-color: rgba(0, 0, 0, 0.6); /* Adjust the alpha value for transparency */
    height: 100vh;
@@ -257,13 +312,12 @@ section{
    border-right: var(--border);
    z-index: 1200;
    backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+   transition: left 0.3s ease; /* Add transition for smooth sidebar movement */
 }
 
-
-.side-bar #close-btn{
+.side-bar #close-btn {
    text-align: right;
    padding: 2rem;
-   display: none;
 }
 
 .side-bar #close-btn i{

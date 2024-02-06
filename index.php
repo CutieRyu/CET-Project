@@ -9,14 +9,6 @@
 
     
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('../images/baybg.jpg') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
         header {
             background-color: #000;
@@ -154,7 +146,7 @@
     </main>
 
     <footer>
-        <p class="footer-text">&copy; 2024 Baybayin Learning. All rights reserved.</p>
+        <p class="footer-text">&copy; 2024  BayBytes. All rights reserved.</p>
     </footer>
 </body>
 

@@ -1,18 +1,3 @@
-<?php
-
-include 'db_config.php'; // Include your database connection configuration
-include 'functions.php'; // Include your helper functions
-
-// Check user authentication and role
-if (!isLoggedIn() || !isUserAdmin()) {
-    header("Location: login.php");
-    exit();
-}
-
-// Retrieve admin data
-$adminData = getAdminData($_SESSION['username']); // Implement this function to fetch admin data
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,93 +1,26 @@
 <?php
-// functions.php
 
-// Include your database connection configuration
 include 'db_config.php';
-
-// Helper function to check if a user is logged in
-function isLoggedIn() {
-    return isset($_SESSION['id']);
-}
-
-// Helper function to check if a user is a teacher
-function isUserTeacher() {
-    return isLoggedIn() && isset($_SESSION['role']) && $_SESSION['role'] == 1;
-}
-
-// Helper function to check if a user is a student
-function isUserStudent() {
-    return isLoggedIn() && isset($_SESSION['role']) && $_SESSION['role'] == 2;
-}
-
-function isUserAdmin() {
-    return isLoggedIn() && isset($_SESSION['role']) && $_SESSION['role'] == 3;
-    header("Location: admin_dashboard.php");
-}
 
 // Helper function to validate login credentials and retrieve user data
 function validateLogin($usernameOrEmail, $password) {
     global $conn; // Use the database connection from db_config.php
 
-    $sql = "SELECT id, role FROM public_user WHERE (username = '$usernameOrEmail' OR email = '$usernameOrEmail') AND password = '$password'";
+    // Use prepared statements to prevent SQL injection
+    $stmt = $conn->prepare("SELECT id, role FROM public_user WHERE (username = ? OR email = ?) AND password = ?");
+    $stmt->bind_param("sss", $usernameOrEmail, $usernameOrEmail, $password);
+    $stmt->execute();
+    $stmt->store_result();
 
-    $result = $conn->query($sql);
-
-    if ($result->num_rows == 1) {
+    if ($stmt->num_rows == 1) {
         // Return user data if login is successful
-        return $result->fetch_assoc();
+        $stmt->bind_result($id, $role);
+        $stmt->fetch();
+        return ['id' => $id, 'role' => $role];
     } else {
         // Return false if login fails
         return false;
     }
-}
-
-function validateTeacherLogin($usernameOrEmail, $password) {
-    global $conn; // Use the database connection from db_config.php
-
-    $sql = "SELECT id, role FROM public_user WHERE (username = '$usernameOrEmail' OR email = '$usernameOrEmail', 'role' = $role) AND password = '$password'";
-
-    $result = $conn->query($sql);
-
-    if ($result-> num_rows == 1 and $role == 1) {
-        // Return user data if login is successful
-        return $result->fetch_assoc();
-    } else {
-        // Return false if login fails
-        return false;
-    }
-}
-
-function validateStudentLogin($usernameOrEmail, $password) {
-    global $conn;
-
-    $sql = "SELECT id, role FROM public_user WHERE (username = '$usernameOrEmail' OR email = '$usernameOrEmail') AND password = '$password'";
-
-    $result = $conn->query($sql);
-
-   
-    if ($result-> num_rows == 1 and $role == 2) {
-        // Return user data if login is successful
-        return $result->fetch_assoc();
-    } else {
-        // Return false if login fails
-        return false;
-    }
-}
-
-function validateAdminLogin($usernameOrEmail, $password) {
-    global $conn;
-
-    $sql = "SELECT id, role FROM public_user WHERE (username = '$usernameOrEmail' OR email = '$usernameOrEmail') AND password = '$password'";
-
-    $result = $conn->query($sql);
-
-   
-    if ($result-> num_rows == 1 and $role == 3) {
-        // Return user data if login is successful
-        return $result->fetch_assoc();
-    } else {
-        // Return false if login fails
-        return false;
-    }
+    $stmt->close();
 }
 ?>

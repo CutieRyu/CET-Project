@@ -1,18 +1,3 @@
-<?php
-// student_dashboard.php
-
-// Include necessary files and functions
-
-// Check user authentication and role
-if (!isLoggedIn() || !isUserStudent()) {
-    header("Location: login.php");
-    exit();
-}
-
-// Retrieve student data
-$studentData = getStudentData($_SESSION['username']); // Implement this function to fetch student data
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

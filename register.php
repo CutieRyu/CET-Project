@@ -102,10 +102,10 @@ $conn->close();
             <div class="dropdown-container">
                 <label for="role">Role:</label>
                 <select id="role" name="role">
-                    <option value="0">Normal User</option>
                     <option value="1">Teacher</option>
                     <option value="2">Student</option>
                     <option value="3">Admin</option>
+                    <option value="4">Normal User</option>
                 </select>
             </div>
             <button type="submit">Register</button>

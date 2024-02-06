@@ -41,27 +41,19 @@ document.querySelector('#search-btn').onclick = () =>{
    profile.classList.remove('active');
 }
 
-let sideBar = document.querySelector('.side-bar');
+document.addEventListener('DOMContentLoaded', function () {
+   const menuBtn = document.getElementById('menu-btn');
+   const closeBtn = document.getElementById('close-btn');
+   const sideBar = document.querySelector('.side-bar');
 
-document.querySelector('#menu-btn').onclick = () =>{
-   sideBar.classList.toggle('active');
-   body.classList.toggle('active');
-}
+   menuBtn.addEventListener('click', function () {
+       sideBar.style.left = '0';
+   });
 
-document.querySelector('#close-btn').onclick = () =>{
-   sideBar.classList.remove('active');
-   body.classList.remove('active');
-}
-
-window.onscroll = () =>{
-   profile.classList.remove('active');
-   search.classList.remove('active');
-
-   if(window.innerWidth < 1200){
-      sideBar.classList.remove('active');
-      body.classList.remove('active');
-   }
-}
+   closeBtn.addEventListener('click', function () {
+       sideBar.style.left = '-200px';
+   });
+});
 // Function to open the video in a pop-up window
 function openVideoPopup(url) {
    // Set the width and height according to your preferences

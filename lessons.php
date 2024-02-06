@@ -64,7 +64,7 @@
    <nav class="navbar">
       <a href="dashboard.php"><i class="fas fa-home"></i><span>home</span></a>
       <a href="about.php"><i class="fas fa-question"></i><span>about</span></a>
-      <a href="courses.php"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+      <a href="courses.php"><i class="fas fa-graduation-cap"></i><span>lessons</span></a>
       <a href="teachers.php"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
       <a href="contact.php"><i class="fas fa-headset"></i><span>contact us</span></a>
    </nav>
@@ -73,7 +73,7 @@
 
 <section class="courses">
 
-   <h1 class="heading">our courses</h1>
+   <h1 class="heading">our lessons</h1>
 
    <div class="box-container">
  
@@ -108,14 +108,55 @@
          <h3 class="title">Baybayin Tutorial #2 </h3>
          <a href="playlist.html" class="inline-btn">view playlist</a>
       </div>
+      <div class="box">
+   <div class="tutor">
+      <img src="images/tutor-1.jpg" alt="Tutor 1">
+      <div class="info">
+         <h4>Tutor Name 1</h4>
+         <p>Expert in Baybayin</p>
+      </div>
+   </div>
+   <div class="thumb">
+      <img src="images/thumb-5.jpg" alt="Thumbnail 5">
+      <span>2 videos</span>
+   </div>
+   <h3 class="title">Baybayin Tutorial #3</h3>
+   <a href="playlist.html" class="inline-btn">view playlist</a>
+</div>
 
+<div class="box">
+   <div class="tutor">
+      <img src="images/tutor-2.jpg" alt="Tutor 2">
+      <div class="info">
+         <h4>Tutor Name 2</h4>
+         <p>Passionate about Baybayin</p>
+      </div>
+   </div>
+   <div class="thumb">
+      <img src="images/thumb-6.jpg" alt="Thumbnail 6">
+      <span>2 videos</span>
+   </div>
+   <h3 class="title">Baybayin Tutorial #4</h3>
+   <a href="playlist.html" class="inline-btn">view playlist</a>
+</div>
+
+<div class="box">
+   <div class="tutor">
+      <img src="images/tutor-3.jpg" alt="Tutor 3">
+      <div class="info">
+         <h4>Tutor Name 3</h4>
+         <p>Experienced in Baybayin art</p>
+      </div>
+   </div>
+   <div class="thumb">
+      <img src="images/thumb-7.jpg" alt="Thumbnail 7">
+      <span>2 videos</span>
+   </div>
+   <h3 class="title">Baybayin Tutorial #5</h3>
+   <a href="playlist.html" class="inline-btn">view playlist</a>
+</div>
      
-
-    
-
 </section>
-
-
 
 
 <!-- custom js file link  -->
